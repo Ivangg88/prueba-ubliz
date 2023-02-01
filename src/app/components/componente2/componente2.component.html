@@ -1,1 +1,18 @@
-<p>componente2 works!</p>
+<div class="table-container">
+  <h1 class="" table-container__title>Lista de libros</h1>
+
+  <p-table [value]="bookList" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header" class="header">
+      <tr class="title">
+        <th>Code</th>
+        <th>Name</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-book>
+      <tr class="body__content">
+        <td>{{ book.code }}</td>
+        <td>{{ book.name }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
