@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Book } from 'src/app/models/books';
-import { addBooks } from 'src/app/store/books.actions';
+import { addBooks, DeleteBook } from 'src/app/store/books.actions';
 import { bookList } from '../../../utils/data';
 
 @Component({
@@ -20,5 +20,12 @@ export class Componente2Component implements OnInit {
 
   ngOnInit(): void {
     this.bookStore.subscribe((res: any) => (this.bookList = res));
+  }
+
+  deleteBook() {
+    if (this.bookList.length < 1) {
+      return;
+    }
+    this.store.dispatch(DeleteBook());
   }
 }
